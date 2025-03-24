@@ -2,6 +2,7 @@ package com.keysenpai.keysenpaiAPI.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -15,13 +16,24 @@ import java.util.List;
     private String nombreIngles;
     private String sinopsis;
     private int estado;
-    private int anno;
+    private LocalDate anno;
     private int tipoAnime;
     private String imgPrincipal;
     private int ordenDeVisualizacion;
     @OneToMany(mappedBy="anime")
     private List<Cancion> canciones;
 
+    @OneToMany(mappedBy="anime")
+    private List<LibroPorAnime> librosPorAnimes;
+
+    @OneToMany(mappedBy="anime")
+    private List<MiAnime> misAnimes;
+
+    @OneToMany(mappedBy="anime")
+    private List<GeneroPorAnime> generosPorAnimes;
+
+    @OneToMany(mappedBy="anime")
+    private List<Temporada> temporadas;
 
 
    public int getIdAnime() {
@@ -77,11 +89,11 @@ import java.util.List;
       this.estado = estado;
    }
 
-   public int getAnno() {
+   public LocalDate getAnno() {
       return anno;
    }
 
-   public void setAnno(int anno) {
+   public void setAnno(LocalDate anno) {
       this.anno = anno;
    }
 
