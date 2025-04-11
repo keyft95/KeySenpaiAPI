@@ -10,7 +10,7 @@ import java.util.List;
  public class Anime {
     @Id
     @GeneratedValue(strategy  = GenerationType.AUTO)
-    private int idAnime;
+    private Long idAnime;
     private String nombreJapones;
     private String nombreEspanol;
     private String nombreIngles;
@@ -36,90 +36,123 @@ import java.util.List;
     private List<Temporada> temporadas;
 
 
-   public int getIdAnime() {
-      return idAnime;
-   }
+    public Long getIdAnime() {
+        return idAnime;
+    }
 
+    public void setIdAnime(Long idAnime) {
+        this.idAnime = idAnime;
+    }
 
-   public void setIdAnime(int id) {
-      this.idAnime = id;
-   }
+    public String getNombreJapones() {
+        return nombreJapones;
+    }
 
-   public String getNombreJapones() {
-      return nombreJapones;
-   }
+    public void setNombreJapones(String nombreJapones) {
+        this.nombreJapones = nombreJapones;
+    }
 
-   public void setNombreJapones(String nombreJapones) {
-      this.nombreJapones = nombreJapones;
-   }
+    public String getNombreEspanol() {
+        return nombreEspanol;
+    }
 
-   public String getNombreEspanol() {
-      return nombreEspanol;
-   }
+    public void setNombreEspanol(String nombreEspanol) {
+        this.nombreEspanol = nombreEspanol;
+    }
 
-   public void setNombreEspanol(String nombreEspanol) {
-      this.nombreEspanol = nombreEspanol;
-   }
+    public String getNombreIngles() {
+        return nombreIngles;
+    }
 
+    public void setNombreIngles(String nombreIngles) {
+        this.nombreIngles = nombreIngles;
+    }
 
-   public String getNombreIngles() {
-      return nombreIngles;
-   }
+    public String getSinopsis() {
+        return sinopsis;
+    }
 
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
 
-   public void setNombreIngles(String nombreIngles) {
-      this.nombreIngles = nombreIngles;
-   }
+    public int getEstado() {
+        return estado;
+    }
 
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
 
-   public String getSinopsis() {
-      return sinopsis;
-   }
+    public LocalDate getAnno() {
+        return anno;
+    }
 
+    public void setAnno(LocalDate anno) {
+        this.anno = anno;
+    }
 
-   public void setSinopsis(String sinopsis) {
-      this.sinopsis = sinopsis;
-   }
+    public int getTipoAnime() {
+        return tipoAnime;
+    }
 
-   public int getEstado() {
-      return estado;
-   }
+    public void setTipoAnime(int tipoAnime) {
+        this.tipoAnime = tipoAnime;
+    }
 
-   public void setEstado(int estado) {
-      this.estado = estado;
-   }
+    public String getImgPrincipal() {
+        return imgPrincipal;
+    }
 
-   public LocalDate getAnno() {
-      return anno;
-   }
+    public void setImgPrincipal(String imgPrincipal) {
+        this.imgPrincipal = imgPrincipal;
+    }
 
-   public void setAnno(LocalDate anno) {
-      this.anno = anno;
-   }
+    public int getOrdenDeVisualizacion() {
+        return ordenDeVisualizacion;
+    }
 
-   public int getTipoAnime() {
-      return tipoAnime;
-   }
+    public void setOrdenDeVisualizacion(int ordenDeVisualizacion) {
+        this.ordenDeVisualizacion = ordenDeVisualizacion;
+    }
 
-   public void setTipoAnime(int tipoAnime) {
-      this.tipoAnime = tipoAnime;
-   }
+    public List<Cancion> getCanciones() {
+        return canciones;
+    }
 
-   public String getImgPrincipal() {
-      return imgPrincipal;
-   }
+    public void setCanciones(List<Cancion> canciones) {
+        this.canciones = canciones;
+    }
 
-   public void setImgPrincipal(String imgPrincipal) {
-      this.imgPrincipal = imgPrincipal;
-   }
+    public List<LibroPorAnime> getLibrosPorAnimes() {
+        return librosPorAnimes;
+    }
 
-   public int getOrdenDeVisualizacion() {
-      return ordenDeVisualizacion;
-   }
+    public void setLibrosPorAnimes(List<LibroPorAnime> librosPorAnimes) {
+        this.librosPorAnimes = librosPorAnimes;
+    }
 
-   public void setOrdenDeVisualizacion(int ordenDeVisualizacion) {
-      this.ordenDeVisualizacion = ordenDeVisualizacion;
-   }
+    public List<MiAnime> getMisAnimes() {
+        return misAnimes;
+    }
 
+    public void setMisAnimes(List<MiAnime> misAnimes) {
+        this.misAnimes = misAnimes;
+    }
 
+    public List<GeneroPorAnime> getGenerosPorAnimes() {
+        return generosPorAnimes;
+    }
+
+    public void setGenerosPorAnimes(List<GeneroPorAnime> generosPorAnimes) {
+        this.generosPorAnimes = generosPorAnimes;
+    }
+
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
+    public void setTemporadas(List<Temporada> temporadas) {
+        this.temporadas = temporadas;
+    }
 }

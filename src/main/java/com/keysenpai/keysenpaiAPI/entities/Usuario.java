@@ -10,7 +10,7 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idUsuario;
+    private int id;
     private String nombre;
     private String nombrePerfil;
     private String apellidos;
@@ -25,12 +25,12 @@ public class Usuario {
     private List<MiAnime>misAnimes ;
 
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getId() {
+        return id;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

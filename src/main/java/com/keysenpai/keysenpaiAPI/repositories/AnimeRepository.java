@@ -6,6 +6,6 @@ import java.util.Optional;
 
 
 
-public interface AnimeRepository extends JpaRepository<Anime, Integer> {
-    Optional<Anime> findById(int id);
+public interface AnimeRepository extends JpaRepository<Anime, Long> {
+
 }
