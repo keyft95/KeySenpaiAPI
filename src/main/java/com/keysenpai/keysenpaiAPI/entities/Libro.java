@@ -1,5 +1,7 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
+import com.keysenpai.keysenpaiAPI.enums.Estado;
+import com.keysenpai.keysenpaiAPI.enums.TipoLibro;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -10,14 +12,18 @@ import java.util.List;
 public class Libro {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idLibro;
+    private Long idLibro;
     private String nombreJapones;
     private String nombreEspannol;
     private String nombreIngles;
     private String sinopsis;
-    private int tipoLibro;
+
+    @Enumerated(EnumType.STRING)
+    private TipoLibro tipoLibro;
     private LocalDate anno;
-    private int estado;
+
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
     private String imgPrincipal;
     private int ordenDeVisualizacion;
     @OneToMany(mappedBy="libro")
@@ -30,11 +36,11 @@ public class Libro {
     private List<LibroPorAnime> librosPorAnime;
 
 
-    public int getIdLibro() {
+    public Long getIdLibro() {
         return idLibro;
     }
 
-    public void setIdLibro(int idLibro) {
+    public void setIdLibro(Long idLibro) {
         this.idLibro = idLibro;
     }
 
@@ -70,11 +76,11 @@ public class Libro {
         this.sinopsis = sinopsis;
     }
 
-    public int getTipoLibro() {
+    public TipoLibro getTipoLibro() {
         return tipoLibro;
     }
 
-    public void setTipoLibro(int tipoLibro) {
+    public void setTipoLibro(TipoLibro tipoLibro) {
         this.tipoLibro = tipoLibro;
     }
 
@@ -86,11 +92,11 @@ public class Libro {
         this.anno = anno;
     }
 
-    public int getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -108,5 +114,29 @@ public class Libro {
 
     public void setOrdenDeVisualizacion(int ordenDeVisualizacion) {
         this.ordenDeVisualizacion = ordenDeVisualizacion;
+    }
+
+    public List<GeneroPorLibro> getGenerosPorLibro() {
+        return generosPorLibro;
+    }
+
+    public void setGenerosPorLibro(List<GeneroPorLibro> generosPorLibro) {
+        this.generosPorLibro = generosPorLibro;
+    }
+
+    public List<MiLibro> getMisLibros() {
+        return misLibros;
+    }
+
+    public void setMisLibros(List<MiLibro> misLibros) {
+        this.misLibros = misLibros;
+    }
+
+    public List<LibroPorAnime> getLibrosPorAnime() {
+        return librosPorAnime;
+    }
+
+    public void setLibrosPorAnime(List<LibroPorAnime> librosPorAnime) {
+        this.librosPorAnime = librosPorAnime;
     }
 }
