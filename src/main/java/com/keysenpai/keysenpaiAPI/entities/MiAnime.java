@@ -1,5 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
+import com.keysenpai.keysenpaiAPI.enums.Estado;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,8 +9,9 @@ public class MiAnime {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idMiAnime;
-    private int estado;
-    private double puntuacion;
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
+    private double puntuacion = 0;
 
     @ManyToOne
     @JoinColumn(name = "idAnime", nullable = false)
