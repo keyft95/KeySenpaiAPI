@@ -70,4 +70,11 @@ public class AnimeController {
         }
     }
 
+    @GetMapping(value = "/search/{keywords}")
+    public ResponseEntity<GenericResponse> searchByName(@PathVariable String keywords){
+        return ResponseEntity.status(HttpStatus.OK)
+                    .body(new GenericResponse(animeService.searchByName(keywords)));
+
+    }
+
 }

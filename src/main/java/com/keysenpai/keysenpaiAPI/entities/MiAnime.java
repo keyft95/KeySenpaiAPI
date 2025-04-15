@@ -1,6 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
-import com.keysenpai.keysenpaiAPI.enums.Estado;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,9 +8,9 @@ import jakarta.persistence.*;
 public class MiAnime {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idMiAnime;
+    private Long idMiAnime;
     @Enumerated(EnumType.STRING)
-    private Estado estado;
+    private EstadoMiAnime estadoMiAnime;
     private double puntuacion = 0;
 
     @ManyToOne
@@ -21,4 +21,27 @@ public class MiAnime {
     @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
+    public Long getIdMiAnime() {
+        return idMiAnime;
+    }
+
+    public void setIdMiAnime(Long idMiAnime) {
+        this.idMiAnime = idMiAnime;
+    }
+
+    public EstadoMiAnime getEstadoMiAnime() {
+        return estadoMiAnime;
+    }
+
+    public void setEstadoMiAnime(EstadoMiAnime estadoMiAnime) {
+        this.estadoMiAnime = estadoMiAnime;
+    }
+
+    public double getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(double puntuacion) {
+        this.puntuacion = puntuacion;
+    }
 }

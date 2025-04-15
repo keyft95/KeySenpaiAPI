@@ -43,4 +43,9 @@ public class AnimeServiceImpl implements AnimeService {
     public List<Anime> ListarAnimes() {
        return animeRepository.findAll();
    }
+
+   @Override
+    public List<Anime> searchByName(String keywords) {
+       return animeRepository.findAllByNombreEspanolContainsIgnoreCaseOrNombreJaponesContainsIgnoreCaseOrNombreInglesContainsIgnoreCase(keywords, keywords, keywords);
+   }
 }

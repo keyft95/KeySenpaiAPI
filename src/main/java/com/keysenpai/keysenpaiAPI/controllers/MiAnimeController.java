@@ -2,15 +2,13 @@ package com.keysenpai.keysenpaiAPI.controllers;
 
 
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
 import com.keysenpai.keysenpaiAPI.impl.MiAnimeService;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("misAnimes")
@@ -28,11 +26,38 @@ public class MiAnimeController {
                 .body(new GenericResponse(miAnimeService.ListarMisAnimes()));
     }
 
+    @PostMapping
+    public ResponseEntity<GenericResponse> addAnimeToMyAnimes(MiAnime miAnime) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new GenericResponse(miAnimeService.addAnimeToMyList(miAnime)));
+    }
+
+    @DeleteMapping(value = "/{idMiAnime}")
+    public ResponseEntity<GenericResponse> eliminarAnimeDeMiLista(@PathVariable Long idMiAnime) {
+        try {
+            this.miAnimeService.eliminarAnimeDeMiLista(idMiAnime);
+            return ResponseEntity.status(HttpStatus.ACCEPTED)
+                    .body(new GenericResponse("Se ha eliminado el anime de la lista"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new GenericResponse(e.getMessage()));
+        }
+    }
+
+    @PutMapping(value = "cambiarEstado/{idMiAnime}/{estadoMiAnime}")
+    public ResponseEntity<GenericResponse> cambiarEstadoAnimeDeMiLista(@PathVariable Long idMiAnime, @PathVariable EstadoMiAnime estadoMiAnime) {
+        try {
+            this.miAnimeService.actualizarAnimeDeMiLista(idMiAnime, estadoMiAnime);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new GenericResponse("Se ha cambiado el estado a "+ estadoMiAnime));
+        }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new GenericResponse(e.getMessage()));
+        }
+    }
+
 }
-//    @PostMapping
-//    public ResponseEntity<GenericResponse> addAnimeToMyAnimes(MiAnime miAnime) {
-//        return ResponseEntity.status(HttpStatus.CREATED)
-//                .body(new GenericResponse(miAnimeService.addToMyAnimes(miAnime)));
+
 
 
 

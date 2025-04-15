@@ -10,4 +10,5 @@ public interface AnimeService {
     public void eliminarAnime(Long id);
     public void actualizarAnime(Anime anime);
     public List<Anime> ListarAnimes();
+    public List<Anime> searchByName(String keywords);
 }

@@ -1,6 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
-import com.keysenpai.keysenpaiAPI.enums.Estado;
+import com.keysenpai.keysenpaiAPI.enums.EstadoAnimeLibro;
 import com.keysenpai.keysenpaiAPI.enums.TipoLibro;
 import jakarta.persistence.*;
 
@@ -23,7 +23,7 @@ public class Libro {
     private LocalDate anno;
 
     @Enumerated(EnumType.STRING)
-    private Estado estado;
+    private EstadoAnimeLibro estadoAnimeLibro;
     private String imgPrincipal;
     private int ordenDeVisualizacion;
     @OneToMany(mappedBy="libro")
@@ -92,12 +92,12 @@ public class Libro {
         this.anno = anno;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public EstadoAnimeLibro getEstadoAnimeLibro() {
+        return estadoAnimeLibro;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setEstado(EstadoAnimeLibro estadoAnimeLibro) {
+        this.estadoAnimeLibro = estadoAnimeLibro;
     }
 
     public String getImgPrincipal() {

@@ -1,6 +1,6 @@
 package com.keysenpai.keysenpaiAPI.enums;
 
-public enum Estado {
+public enum EstadoAnimeLibro {
     ENPROGRESO,
     FINALIZADO,
     HIATUS
