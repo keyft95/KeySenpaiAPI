@@ -1,6 +1,7 @@
 package com.keysenpai.keysenpaiAPI.controllers;
 
 
+import com.keysenpai.keysenpaiAPI.dtos.MiAnimeDTO;
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
 import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
 import com.keysenpai.keysenpaiAPI.impl.MiAnimeService;
@@ -10,9 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("misAnimes")
-public class MiAnimeController {
+public class  MiAnimeController {
     private MiAnimeService miAnimeService;
 
     @Autowired
@@ -23,14 +27,30 @@ public class MiAnimeController {
     @GetMapping
     public ResponseEntity<GenericResponse> all() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new GenericResponse(miAnimeService.ListarMisAnimes()));
+                .body(new GenericResponse(miAnimeService.listarMisAnimes()));
     }
 
     @PostMapping
-    public ResponseEntity<GenericResponse> addAnimeToMyAnimes(MiAnime miAnime) {
+    public ResponseEntity<GenericResponse> addAnimeToMyAnimes(@RequestBody MiAnime miAnime) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new GenericResponse(miAnimeService.addAnimeToMyList(miAnime)));
     }
+
+    @GetMapping(value = "/{idUsuario}")
+    public ResponseEntity<GenericResponse> getMisAnimesByUser(@PathVariable Long idUsuario) {
+        List<MiAnime> misAnimes = miAnimeService.getMisAnimesByUser(idUsuario);
+        List<MiAnimeDTO> misAnimesResult = new ArrayList<>();
+        for (MiAnime miAnime:misAnimes) {
+            MiAnimeDTO animeDTO = new MiAnimeDTO();
+            animeDTO.setAnime(miAnime.getAnime());
+            animeDTO.setEstadoMiAnime(miAnime.getEstadoMiAnime());
+            animeDTO.setPuntuacion(miAnime.getPuntuacion());
+            misAnimesResult.add(animeDTO);
+        }
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new GenericResponse(misAnimesResult));
+    }
+
 
     @DeleteMapping(value = "/{idMiAnime}")
     public ResponseEntity<GenericResponse> eliminarAnimeDeMiLista(@PathVariable Long idMiAnime) {

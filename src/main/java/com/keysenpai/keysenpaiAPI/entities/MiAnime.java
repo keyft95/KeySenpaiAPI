@@ -44,4 +44,20 @@ public class MiAnime {
     public void setPuntuacion(double puntuacion) {
         this.puntuacion = puntuacion;
     }
+
+    public Anime getAnime() {
+        return anime;
+    }
+
+    public void setAnime(Anime anime) {
+        this.anime = anime;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

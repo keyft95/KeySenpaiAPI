@@ -45,6 +45,7 @@ public class AnimeController {
                 .body(new GenericResponse(animeService.buscarAnime(id)));
     }
 
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<GenericResponse> eliminar(@PathVariable Long id) {
         try {

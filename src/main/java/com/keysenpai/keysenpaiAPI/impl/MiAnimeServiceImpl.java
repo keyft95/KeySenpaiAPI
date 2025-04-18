@@ -20,9 +20,16 @@ public class MiAnimeServiceImpl implements MiAnimeService{
     }
 
     @Override
-    public List<MiAnime> ListarMisAnimes() {
+    public List<MiAnime> listarMisAnimes() {
         return miAnimeRepository.findAll();
     }
+
+    @Override
+    public List<MiAnime> getMisAnimesByUser(Long idUsuario) {
+        return miAnimeRepository.getAllByUsuario_Id(idUsuario);
+    }
+
+
 
     @Override
     public void eliminarAnimeDeMiLista(Long idMianime) {
