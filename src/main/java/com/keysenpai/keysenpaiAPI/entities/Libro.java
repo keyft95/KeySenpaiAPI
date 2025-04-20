@@ -1,5 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.keysenpai.keysenpaiAPI.enums.EstadoAnimeLibro;
 import com.keysenpai.keysenpaiAPI.enums.TipoLibro;
 import jakarta.persistence.*;
@@ -29,6 +30,7 @@ public class Libro {
     @OneToMany(mappedBy="libro")
     private List<GeneroPorLibro> generosPorLibro;
 
+    @JsonIgnore
     @OneToMany(mappedBy="libro")
     private List<MiLibro> misLibros;
 

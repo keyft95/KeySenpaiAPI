@@ -1,22 +1,20 @@
 package com.keysenpai.keysenpaiAPI.dtos;
 
 import com.keysenpai.keysenpaiAPI.entities.Anime;
-import com.keysenpai.keysenpaiAPI.entities.Usuario;
-import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
-import jakarta.persistence.*;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
 
 public class MiAnimeDTO {
 
-    private EstadoMiAnime estadoMiAnime;
+    private EstadoMiAnimeMiLibro estadoMiAnimeMiLibro;
     private double puntuacion;
     private Anime anime;
 
-    public EstadoMiAnime getEstadoMiAnime() {
-        return estadoMiAnime;
+    public EstadoMiAnimeMiLibro getEstadoMiAnime() {
+        return estadoMiAnimeMiLibro;
     }
 
-    public void setEstadoMiAnime(EstadoMiAnime estadoMiAnime) {
-        this.estadoMiAnime = estadoMiAnime;
+    public void setEstadoMiAnime(EstadoMiAnimeMiLibro estadoMiAnimeMiLibro) {
+        this.estadoMiAnimeMiLibro = estadoMiAnimeMiLibro;
     }
 
     public double getPuntuacion() {

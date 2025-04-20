@@ -1,7 +1,7 @@
 package com.keysenpai.keysenpaiAPI.impl;
 
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
-import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
 import com.keysenpai.keysenpaiAPI.repositories.MiAnimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,11 +37,11 @@ public class MiAnimeServiceImpl implements MiAnimeService{
     }
 
     @Override
-    public void actualizarAnimeDeMiLista(Long idMiAnime, EstadoMiAnime estadoMiAnime) {
+    public void actualizarAnimeDeMiLista(Long idMiAnime, EstadoMiAnimeMiLibro estadoMiAnimeMiLibro) {
         Optional<MiAnime> optionalMiAnime = miAnimeRepository.findById(idMiAnime);
         if(optionalMiAnime.isPresent()) {
             MiAnime miAnime = optionalMiAnime.get();
-            miAnime.setEstadoMiAnime(estadoMiAnime);
+            miAnime.setEstadoMiAnime(estadoMiAnimeMiLibro);
             miAnimeRepository.save(miAnime);
 
         }

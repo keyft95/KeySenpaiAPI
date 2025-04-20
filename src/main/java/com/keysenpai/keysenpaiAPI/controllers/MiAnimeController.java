@@ -1,9 +1,8 @@
 package com.keysenpai.keysenpaiAPI.controllers;
 
-
 import com.keysenpai.keysenpaiAPI.dtos.MiAnimeDTO;
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
-import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
 import com.keysenpai.keysenpaiAPI.impl.MiAnimeService;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,12 +63,12 @@ public class  MiAnimeController {
         }
     }
 
-    @PutMapping(value = "cambiarEstado/{idMiAnime}/{estadoMiAnime}")
-    public ResponseEntity<GenericResponse> cambiarEstadoAnimeDeMiLista(@PathVariable Long idMiAnime, @PathVariable EstadoMiAnime estadoMiAnime) {
+    @PutMapping(value = "cambiarEstado/{idMiAnime}/{estadoMiAnimeMiLibro}")
+    public ResponseEntity<GenericResponse> cambiarEstadoAnimeDeMiLista(@PathVariable Long idMiAnime, @PathVariable EstadoMiAnimeMiLibro estadoMiAnimeMiLibro) {
         try {
-            this.miAnimeService.actualizarAnimeDeMiLista(idMiAnime, estadoMiAnime);
+            this.miAnimeService.actualizarAnimeDeMiLista(idMiAnime, estadoMiAnimeMiLibro);
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new GenericResponse("Se ha cambiado el estado a "+ estadoMiAnime));
+                    .body(new GenericResponse("Se ha cambiado el estado a "+ estadoMiAnimeMiLibro));
         }catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new GenericResponse(e.getMessage()));

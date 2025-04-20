@@ -1,5 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -19,9 +20,11 @@ public class Usuario {
     private String fotoPerfil;
     private boolean activo = true;
 
+    @JsonIgnore
     @OneToMany(mappedBy="usuario")
     private List<MiLibro> misLibros;
 
+    @JsonIgnore
     @OneToMany(mappedBy="usuario")
     private List<MiAnime>misAnimes ;
 

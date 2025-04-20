@@ -1,6 +1,6 @@
 package com.keysenpai.keysenpaiAPI.entities;
 
-import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnime;
+import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,7 +10,7 @@ public class MiAnime {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idMiAnime;
     @Enumerated(EnumType.STRING)
-    private EstadoMiAnime estadoMiAnime;
+    private EstadoMiAnimeMiLibro estadoMiAnime;
     private double puntuacion = 0;
 
     @ManyToOne
@@ -29,12 +29,12 @@ public class MiAnime {
         this.idMiAnime = idMiAnime;
     }
 
-    public EstadoMiAnime getEstadoMiAnime() {
+    public EstadoMiAnimeMiLibro getEstadoMiAnime() {
         return estadoMiAnime;
     }
 
-    public void setEstadoMiAnime(EstadoMiAnime estadoMiAnime) {
-        this.estadoMiAnime = estadoMiAnime;
+    public void setEstadoMiAnime(EstadoMiAnimeMiLibro estadoMiAnimeMiLibro) {
+        this.estadoMiAnime = estadoMiAnimeMiLibro;
     }
 
     public double getPuntuacion() {

@@ -1,6 +1,6 @@
 package com.keysenpai.keysenpaiAPI.enums;
 
-public enum EstadoMiAnime {
+public enum EstadoMiAnimeMiLibro {
     VIENDO,
     TERMINADO,
     PORVER
