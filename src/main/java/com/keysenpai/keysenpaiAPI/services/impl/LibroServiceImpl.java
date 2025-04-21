@@ -1,17 +1,16 @@
-package com.keysenpai.keysenpaiAPI.impl;
+package com.keysenpai.keysenpaiAPI.services.impl;
 
 
-import com.keysenpai.keysenpaiAPI.entities.Anime;
 import com.keysenpai.keysenpaiAPI.entities.Libro;
-import com.keysenpai.keysenpaiAPI.repositories.AnimeRepository;
 import com.keysenpai.keysenpaiAPI.repositories.LibroRepository;
+import com.keysenpai.keysenpaiAPI.services.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class LibroServiceImpl implements LibroService{
+public class LibroServiceImpl implements LibroService {
 
     private LibroRepository libroRepository;
 

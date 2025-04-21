@@ -1,4 +1,4 @@
-package com.keysenpai.keysenpaiAPI.impl;
+package com.keysenpai.keysenpaiAPI.services;
 
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
 import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;

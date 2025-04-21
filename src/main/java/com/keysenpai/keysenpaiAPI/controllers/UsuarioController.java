@@ -1,14 +1,12 @@
 package com.keysenpai.keysenpaiAPI.controllers;
 
 import com.keysenpai.keysenpaiAPI.entities.Usuario;
-import com.keysenpai.keysenpaiAPI.impl.UsuarioService;
-import com.keysenpai.keysenpaiAPI.responses.AnimeResponse;
+import com.keysenpai.keysenpaiAPI.services.UsuarioService;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
 import com.keysenpai.keysenpaiAPI.responses.UsuarioResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

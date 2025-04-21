@@ -3,7 +3,7 @@ package com.keysenpai.keysenpaiAPI.controllers;
 import com.keysenpai.keysenpaiAPI.dtos.MiAnimeDTO;
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
 import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
-import com.keysenpai.keysenpaiAPI.impl.MiAnimeService;
+import com.keysenpai.keysenpaiAPI.services.MiAnimeService;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

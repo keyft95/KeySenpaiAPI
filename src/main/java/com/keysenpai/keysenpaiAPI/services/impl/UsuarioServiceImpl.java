@@ -1,8 +1,9 @@
-package com.keysenpai.keysenpaiAPI.impl;
+package com.keysenpai.keysenpaiAPI.services.impl;
 
 
 import com.keysenpai.keysenpaiAPI.entities.Usuario;
 import com.keysenpai.keysenpaiAPI.repositories.UsuarioRepository;
+import com.keysenpai.keysenpaiAPI.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,10 @@
 package com.keysenpai.keysenpaiAPI.controllers;
 
 
-import com.keysenpai.keysenpaiAPI.entities.Anime;
 import com.keysenpai.keysenpaiAPI.entities.Libro;
-import com.keysenpai.keysenpaiAPI.impl.LibroService;
+import com.keysenpai.keysenpaiAPI.services.LibroService;
 import com.keysenpai.keysenpaiAPI.responses.AnimeResponse;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,4 +69,11 @@ public class LibroController {
                     .body(new GenericResponse(e.getMessage()));
         }
     }
+
+//    @GetMapping(value = "/search/{keywords}")
+//    public ResponseEntity<GenericResponse> searchByName(@PathVariable String keywords){
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(new GenericResponse(libroService.searchByName(keywords)));
+//
+//    }
 }

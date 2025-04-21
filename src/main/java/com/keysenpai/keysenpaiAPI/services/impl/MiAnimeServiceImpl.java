@@ -1,8 +1,9 @@
-package com.keysenpai.keysenpaiAPI.impl;
+package com.keysenpai.keysenpaiAPI.services.impl;
 
 import com.keysenpai.keysenpaiAPI.entities.MiAnime;
 import com.keysenpai.keysenpaiAPI.enums.EstadoMiAnimeMiLibro;
 import com.keysenpai.keysenpaiAPI.repositories.MiAnimeRepository;
+import com.keysenpai.keysenpaiAPI.services.MiAnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MiAnimeServiceImpl implements MiAnimeService{
+public class MiAnimeServiceImpl implements MiAnimeService {
 
     private MiAnimeRepository miAnimeRepository;
 

@@ -1,12 +1,12 @@
-package com.keysenpai.keysenpaiAPI.impl;
+package com.keysenpai.keysenpaiAPI.services.impl;
 
 import com.keysenpai.keysenpaiAPI.entities.Anime;
 import com.keysenpai.keysenpaiAPI.repositories.AnimeRepository;
+import com.keysenpai.keysenpaiAPI.services.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AnimeServiceImpl implements AnimeService {
