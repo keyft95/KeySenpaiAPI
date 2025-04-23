@@ -1,6 +1,7 @@
 package com.keysenpai.keysenpaiAPI.services.impl;
 
 
+import com.keysenpai.keysenpaiAPI.entities.Anime;
 import com.keysenpai.keysenpaiAPI.entities.Libro;
 import com.keysenpai.keysenpaiAPI.repositories.LibroRepository;
 import com.keysenpai.keysenpaiAPI.services.LibroService;
@@ -31,8 +32,13 @@ public class LibroServiceImpl implements LibroService {
     }
 
     @Override
-    public void eliminarLibro(Long id) {
-        libroRepository.deleteById(id);
+    public void deshabilitarLibro(Long id) {
+
+        Libro libro = libroRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
+
+        libro.setActivo(false);
+        libroRepository.save(libro);
     }
 
     @Override
@@ -44,6 +50,12 @@ public class LibroServiceImpl implements LibroService {
     public List<Libro> ListarLibros() {
         return libroRepository.findAll();
     }
+
+    @Override
+    public List<Libro> searchByName(String keywords) {
+        return libroRepository.findAllByNombreEspannolContainsIgnoreCaseOrNombreJaponesContainsIgnoreCaseOrNombreInglesContainsIgnoreCase(keywords, keywords, keywords);
+    }
+
 
 
 }

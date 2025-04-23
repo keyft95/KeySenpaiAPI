@@ -1,6 +1,7 @@
 package com.keysenpai.keysenpaiAPI.services.impl;
 
 import com.keysenpai.keysenpaiAPI.entities.Anime;
+import com.keysenpai.keysenpaiAPI.entities.Usuario;
 import com.keysenpai.keysenpaiAPI.repositories.AnimeRepository;
 import com.keysenpai.keysenpaiAPI.services.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,10 @@ public class AnimeServiceImpl implements AnimeService {
        return animeRepository.findById(id).get();
    }
 
-   @Override
-    public void eliminarAnime(Long id) {
-       animeRepository.deleteById(id);
-   }
+//   @Override
+//    public void eliminarAnime(Long id) {
+//       animeRepository.deleteById(id);
+//   }
 
    @Override
     public void actualizarAnime(Anime anime) {
@@ -48,4 +49,14 @@ public class AnimeServiceImpl implements AnimeService {
     public List<Anime> searchByName(String keywords) {
        return animeRepository.findAllByNombreEspanolContainsIgnoreCaseOrNombreJaponesContainsIgnoreCaseOrNombreInglesContainsIgnoreCase(keywords, keywords, keywords);
    }
+
+    @Override
+    public void deshabilitarAnime(Long id) {
+
+        Anime anime = animeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Anime no encontrado"));
+
+        anime.setActivo(false);
+        animeRepository.save(anime);
+    }
 }

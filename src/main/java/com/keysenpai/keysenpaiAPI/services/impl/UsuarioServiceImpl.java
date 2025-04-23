@@ -1,6 +1,8 @@
 package com.keysenpai.keysenpaiAPI.services.impl;
 
 
+import com.keysenpai.keysenpaiAPI.entities.Anime;
+import com.keysenpai.keysenpaiAPI.entities.Libro;
 import com.keysenpai.keysenpaiAPI.entities.Usuario;
 import com.keysenpai.keysenpaiAPI.repositories.UsuarioRepository;
 import com.keysenpai.keysenpaiAPI.services.UsuarioService;
@@ -43,5 +45,15 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setActivo(false);
         usuarioRepository.save(usuario);
 
+    }
+
+    @Override
+    public List<Usuario> searchByName(String keywords) {
+        return usuarioRepository.findAllByNombreContainsIgnoreCaseOrNombrePerfilContainsIgnoreCase(keywords, keywords);
+    }
+
+    @Override
+    public void actualizarUsuario(Usuario usuario) {
+        usuarioRepository.save(usuario);
     }
 }

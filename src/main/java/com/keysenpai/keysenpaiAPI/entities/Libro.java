@@ -29,6 +29,19 @@ public class Libro {
     private int ordenDeVisualizacion;
     @OneToMany(mappedBy="libro")
     private List<GeneroPorLibro> generosPorLibro;
+    private boolean activo = true;
+
+    public void setEstadoAnimeLibro(EstadoAnimeLibro estadoAnimeLibro) {
+        this.estadoAnimeLibro = estadoAnimeLibro;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 
     @JsonIgnore
     @OneToMany(mappedBy="libro")

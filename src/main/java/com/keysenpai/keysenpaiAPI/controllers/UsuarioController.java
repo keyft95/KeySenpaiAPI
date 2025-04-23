@@ -1,5 +1,6 @@
 package com.keysenpai.keysenpaiAPI.controllers;
 
+import com.keysenpai.keysenpaiAPI.entities.Anime;
 import com.keysenpai.keysenpaiAPI.entities.Usuario;
 import com.keysenpai.keysenpaiAPI.services.UsuarioService;
 import com.keysenpai.keysenpaiAPI.responses.GenericResponse;
@@ -49,6 +50,26 @@ public class UsuarioController {
     public ResponseEntity<String> deshabilitarUsuario(@PathVariable Long id) {
         usuarioService.deshabilitarUsuario(id);
         return ResponseEntity.ok("Usuario deshabilitado correctamente");
+    }
+
+    @GetMapping(value = "/search/{keywords}")
+    public ResponseEntity<GenericResponse> searchByName(@PathVariable String keywords){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new GenericResponse(usuarioService.searchByName(keywords)));
+
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<GenericResponse> update(@PathVariable Long id, @RequestBody Usuario usuario) {
+        try {
+            usuario.setId(id);
+            usuarioService.actualizarUsuario(usuario);
+            return ResponseEntity.status(HttpStatus.ACCEPTED)
+                    .body(new GenericResponse("actualizado"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new GenericResponse(e.getMessage()));
+        }
     }
 
 }

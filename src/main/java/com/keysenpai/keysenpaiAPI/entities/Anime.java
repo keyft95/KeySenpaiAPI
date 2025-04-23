@@ -18,6 +18,7 @@ import java.util.List;
     private String nombreEspanol;
     private String nombreIngles;
     private String sinopsis;
+    private boolean activo = true;
 
     @Enumerated(EnumType.STRING)
     private EstadoAnimeLibro estadoAnime;
@@ -26,6 +27,15 @@ import java.util.List;
     @Enumerated(EnumType.STRING)
     private TipoAnime tipoAnime;
     private String imgPrincipal;
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     private int ordenDeVisualizacion;
     @OneToMany(mappedBy="anime")
     private List<Cancion> canciones;

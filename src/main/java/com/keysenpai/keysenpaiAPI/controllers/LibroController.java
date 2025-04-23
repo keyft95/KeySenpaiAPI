@@ -44,17 +44,10 @@ public class LibroController {
                 .body(new GenericResponse(libroService.buscarLibro(id)));
     }
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<GenericResponse> eliminar(@PathVariable Long id) {
-        try {
-            this.libroService.eliminarLibro(id);
-            return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(new GenericResponse("Libro eliminado"));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new GenericResponse(e.getMessage()));
-        }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deshabilitarLibro(@PathVariable Long id) {
+        libroService.deshabilitarLibro(id);
+        return ResponseEntity.ok("Libro deshabilitado correctamente");
     }
 
     @PutMapping(value = "/{id}")
@@ -70,10 +63,10 @@ public class LibroController {
         }
     }
 
-//    @GetMapping(value = "/search/{keywords}")
-//    public ResponseEntity<GenericResponse> searchByName(@PathVariable String keywords){
-//        return ResponseEntity.status(HttpStatus.OK)
-//                .body(new GenericResponse(libroService.searchByName(keywords)));
-//
-//    }
+    @GetMapping(value = "/search/{keywords}")
+    public ResponseEntity<GenericResponse> searchByName(@PathVariable String keywords){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new GenericResponse(libroService.searchByName(keywords)));
+
+    }
 }

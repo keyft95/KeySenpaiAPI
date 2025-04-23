@@ -45,16 +45,10 @@ public class AnimeController {
     }
 
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<GenericResponse> eliminar(@PathVariable Long id) {
-        try {
-            this.animeService.eliminarAnime(id);
-            return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(new GenericResponse("Anime eliminado"));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new GenericResponse(e.getMessage()));
-        }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deshabilitarAnime(@PathVariable Long id) {
+        animeService.deshabilitarAnime(id);
+        return ResponseEntity.ok("Anime deshabilitado correctamente");
     }
 
     @PutMapping(value = "/{id}")
